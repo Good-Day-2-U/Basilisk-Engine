@@ -1,9 +1,7 @@
 import { createArray, drawGrid } from "./gameGrid";
 import { UI } from "./UI";
 
-
 // import { moveHeader } from "./testFuncs";
-
 
 ///////////////////////////
 // Variables
