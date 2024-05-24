@@ -12,7 +12,6 @@ let lastTime = performance.now();
 let accumulatedTime = 0;
 const TICKRATE : number = 1000 / 20;
 
-
 // Game grid variables
 const gameWidth = 32;
 const gameHeight = 32;
@@ -29,7 +28,6 @@ canvas.style.border = '1px solid black';
 ///////////////////////////
 // Game state
 let gameRunning = true;
-
 
 ///////////////////////////
 // Pause Event Listener
@@ -50,14 +48,10 @@ pauseButton.addEventListener('click', () => {
   }
 });
 
-
-
 ///////////////////////////
 // Game grid
 const gameArray : number[][] = createArray(gameHeight, gameWidth)
 console.log(gameArray)
-
-
 
 ///////////////////////////
 // Update function
@@ -68,8 +62,6 @@ const update = function(TICKRATE: number) {
   
   // console.log(TICKRATE)
 }
-
-
 
 ///////////////////////////
 // Draw function
@@ -83,8 +75,6 @@ const draw = function() {
   
 
 };
-
-
 
 ///////////////////////////
 // Game loop
@@ -112,11 +102,12 @@ const gameLoop = function(this: any) {
   draw()
   requestAnimationFrame(gameLoop.bind(this))
 };
-
 window.onload = () => {
   requestAnimationFrame(gameLoop)
 };
 
+///////////////////////////
+// Timer
 document.addEventListener('visibilitychange', () => {
   if (document.hidden || !gameRunning) {
     gameRunning = false
@@ -129,7 +120,6 @@ document.addEventListener('visibilitychange', () => {
     console.log('Play')
   }
 });
-
 const runTimer = () => {
   UI.updateTimer(gameRunning)
   requestAnimationFrame(runTimer)

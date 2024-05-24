@@ -4,7 +4,6 @@ const levelElement = document.getElementById('level') as HTMLDivElement;
 
 
 
-
 export const UI = {
   score: 0,
   timer: 0,
@@ -29,4 +28,3 @@ export const UI = {
     levelElement.innerHTML = this.level.toString()
   }
 };
-
