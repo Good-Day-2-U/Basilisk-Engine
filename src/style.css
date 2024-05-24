@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100%; */
+}
+
+#title-header {
+  color: gray;
+}
+
+/* //////////////////////////////////// */
+/* Game UI Top Bar */
+#game-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#score {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+#timer {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+#level {
+  font-size: 1.5rem;
+  color: gray;
+}
+/* //////////////////////////////////// */
+
