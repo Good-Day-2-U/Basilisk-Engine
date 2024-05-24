@@ -1,4 +1,4 @@
-
+import { player } from './main'
 
 export const createArray = (rows: number, cols: number) => {
   let arr = new Array(rows)
@@ -16,6 +16,13 @@ export const drawGrid = (gameArray: number[][], cellSize: number, ctx: CanvasRen
   if (ctx) {
     for (let i = 0; i < gameArray.length; i++) {
       for (let j = 0; j < gameArray[i].length; j++) {
+
+        if (gameArray[i][j] !== gameArray[player.y][player.x]) {
+          gameArray[i][j] = 0
+        }
+
+
+
         if (gameArray[i][j] === 1) {
           ctx.fillStyle = 'black'
           ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)

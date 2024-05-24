@@ -1,4 +1,5 @@
 import { createArray, drawGrid } from "./gameGrid";
+import { Player } from "./player";
 import { UI } from "./UI";
 
 // import { moveHeader } from "./testFuncs";
@@ -51,12 +52,18 @@ pauseButton.addEventListener('click', () => {
 const gameArray : number[][] = createArray(gameHeight, gameWidth)
 console.log(gameArray)
 
+
+///////////////////////////##############################///////////////////////////
+// Player
+export const player = new Player(cellSize, 1, 1, gameArray)
+
+
 ///////////////////////////
 // Update function
 const update = function(TICKRATE: number) {
-
-
-
+  
+  player.insertPlayer(player.canvasArray)
+  
   
   // console.log(TICKRATE)
 }
@@ -69,7 +76,7 @@ const draw = function() {
   // Draw the game grid
   drawGrid(gameArray, cellSize, ctx)
   
-  
+
   
 
 };
