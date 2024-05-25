@@ -31,6 +31,11 @@ body {
   color: gray;
 }
 
+#gold {
+  font-size: 1.5rem;
+  color: gray;
+}
+
 #timer {
   font-size: 1.5rem;
   color: gray;

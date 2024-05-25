@@ -1,4 +1,5 @@
 const scoreElement = document.getElementById('score') as HTMLDivElement;
+const goldElement = document.getElementById('gold') as HTMLDivElement;
 const timerElement = document.getElementById('timer') as HTMLDivElement;
 const levelElement = document.getElementById('level') as HTMLDivElement;
 
@@ -13,6 +14,10 @@ export const UI = {
   updateScore: function() {
     this.score += 1
     scoreElement.innerHTML = this.score.toString()
+  },
+  updateGold: function() {
+    this.score += 1
+    goldElement.innerHTML = `Gold: ${this.score.toString()}`
   },
   updateTimer: function(gameRunning: boolean) {
     if (gameRunning) {
