@@ -3,6 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
+  background-color: rgb(54, 51, 51);
 }
 
 #app {
@@ -23,7 +24,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 7rem;
+  margin: 1rem;
 }
 
 #score {
@@ -45,5 +47,66 @@ body {
   font-size: 1.5rem;
   color: gray;
 }
+
+
+#game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.statButton {
+  background-color: rgb(99, 35, 35);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#right-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+#left-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+#att-level {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+#def-level {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+#hp-level {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+
+
+#hub {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
 /* //////////////////////////////////// */
 

@@ -1,6 +1,6 @@
 import { createArray, drawGrid } from "./gameGrid";
 import { Player } from "./player";
-import { UI } from "./UI";
+import { UI, hubUI } from "./UI";
 import { Gold } from "./gold";
 
 // import { moveHeader } from "./testFuncs";
@@ -24,6 +24,7 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 canvas.width = gameWidth * cellSize;
 canvas.height = gameHeight * cellSize;
 canvas.style.border = '1px solid black';
+canvas.style.backgroundColor = 'lightgrey'
 
 ///////////////////////////
 // Game state
@@ -37,16 +38,29 @@ pauseButton.addEventListener('click', () => {
     gameRunning = false
     pauseButton.innerHTML = 'Play'
     console.log('Pause')
-    // Clear the canvas
+
+    // Clear the canvas if wanted 
     // ctx.clearRect(0, 0, canvas.width, canvas.height)
   } else if (!gameRunning){
-    // UI.startTime = performance.now()
     gameRunning = true
     requestAnimationFrame(gameLoop)
     pauseButton.innerHTML = 'Pause'
     console.log('Play')
   }
 });
+
+///////////////////////////
+// Hub Event Listener
+const hubButton = document.getElementById('hub-button') as HTMLButtonElement;
+hubButton.addEventListener('click', () => {
+  if (gameRunning){
+    gameRunning = false
+    console.log('Hub')
+    requestAnimationFrame(gameOverHubLoop)
+  }
+});
+
+
 
 ///////////////////////////
 // Game grid
@@ -84,7 +98,7 @@ playerControls()
 ///////////////////////////
 // Items, Gold, Enemies
 
-export const gold1 = new Gold(5, 5, 5, gameArray)
+const gold1 = new Gold(5, 5, 5, gameArray)
 const gold2 = new Gold(5, 6, 5, gameArray)
 const gold3 = new Gold(5, 8, 5, gameArray)
 const gold4 = new Gold(12, 12, 5, gameArray)
@@ -96,7 +110,7 @@ gold4.insertGold()
 const checkGold = () =>{
   if (player.loggedCells[1] === 5) {
     UI.updateGold()
-    console.log(UI.score)
+    console.log(UI.gold)
     player.loggedCells[1] = 0
   }
 }
@@ -129,8 +143,6 @@ const draw = function() {
   drawGrid(gameArray, cellSize, ctx)
   
   
-  
-
 };
 
 
@@ -169,6 +181,28 @@ window.onload = () => {
 
 
 ///////////////////////////
+// Hub Update
+const HUBupdate = function(TICKRATE: number) {
+
+
+  console.log(TICKRATE)
+}
+///////////////////////////
+// Hub Draw
+const HUBdraw = function() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  hubUI.hubTitle(ctx)
+  hubUI.showAttack(ctx)
+  hubUI.showDefense(ctx)
+  hubUI.showHealth(ctx)
+
+
+  // Draw the game grid but not for the pause hub screen atm
+  // drawGrid(gameArray, cellSize, ctx)
+};
+///////////////////////////
 // Game Over / Hub Loop
 const gameOverHubLoop = function(this: any) {
   if (gameRunning) {
@@ -178,17 +212,13 @@ const gameOverHubLoop = function(this: any) {
   dTime = currentTime - lastTime
   lastTime = currentTime
   accumulatedTime += dTime
-
-
   // Update the game in its own TICKRATE while drawing happens in the requestAnimationFrame tickrate
   while (accumulatedTime > TICKRATE) {
-    update(TICKRATE)
+    HUBupdate(TICKRATE)
     accumulatedTime -= TICKRATE
   }
-
-
   //Constanly draw the game
-  draw()
+  HUBdraw()
   requestAnimationFrame(gameOverHubLoop.bind(this))
 }
 

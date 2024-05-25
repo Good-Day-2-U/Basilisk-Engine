@@ -2,7 +2,7 @@
 
 
 export class Player {
-  size: number;
+  size: number; // cellsize
   x: number;
   y: number;
   canvasArray: number[][];

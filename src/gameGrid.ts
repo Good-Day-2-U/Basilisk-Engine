@@ -34,7 +34,7 @@ export const drawGrid = (gameArray: number[][], cellSize: number, ctx: CanvasRen
           ctx.fillStyle = 'white'
           ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
         }
-        ctx.strokeStyle = 'black'
+        ctx.strokeStyle = 'grey'
         ctx.strokeRect(j * cellSize, i * cellSize, cellSize, cellSize)
       }
     }

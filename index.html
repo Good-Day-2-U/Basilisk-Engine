@@ -15,13 +15,37 @@
 
       <div id="game-info">
         <div id="score">Score: 0</div>
-        <div id="gold">Gold: 0</div>
         <div id="timer">Timer: 0</div>
         <button id="pause-button">Pause</button>
         <div id="level">Level: 1</div>
       </div>
+      
+      <div id="game-container">
+        
+        <div id="left-ui">
+          <div id="gold">Gold: 0</div>
+          <br>
+          <br>
+          <div id="att-level">Attack: 0</div>
+          <div id="def-level">Defence: 0</div>
+          <div id="hp-level">Health: 0</div>
+          
 
-      <canvas id="game-grid"></canvas>
+        </div>
+
+        <canvas id="game-grid"></canvas>
+
+        <div id="right-ui">
+          <button class="statButton" id="buy-att">Att+</button>
+          <button class="statButton" id="buy-def">Def+</button>
+          <button class="statButton" id="buy-hp">HP+</button>
+        </div>
+
+      </div>
+
+      <div id="hub">
+        <button id="hub-button">HUB</button>
+      </div>
 
     </div>
 
