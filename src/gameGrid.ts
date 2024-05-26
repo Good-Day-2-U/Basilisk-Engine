@@ -30,6 +30,9 @@ export const drawGrid = (gameArray: number[][], cellSize: number, ctx: CanvasRen
         } else if (gameArray[i][j] === 5) {
           ctx.fillStyle = 'yellow'
           ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
+        } else if (gameArray[i][j] === 10) {
+          ctx.fillStyle = 'red'
+          ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
         } else {
           ctx.fillStyle = 'white'
           ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)

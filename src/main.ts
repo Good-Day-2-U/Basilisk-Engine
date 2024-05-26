@@ -2,6 +2,7 @@ import { createArray, drawGrid } from "./gameGrid";
 import { Player } from "./player";
 import { UI, hubUI } from "./UI";
 import { Gold } from "./gold";
+import { Basilisk } from "./basilisk";
 
 // import { moveHeader } from "./testFuncs";
 
@@ -115,6 +116,11 @@ const checkGold = () =>{
   }
 }
 
+///////////////////////////
+// Basilisk
+
+const basilisk = new Basilisk(16, 8, 10, gameArray)
+
 
 
 
@@ -130,6 +136,9 @@ const checkGold = () =>{
 const update = function(TICKRATE: number) {
   
   player.insertPlayer(player.canvasArray)
+
+  basilisk.insertBasilisk()
+  basilisk.chasePlayer(player.x, player.y)
   
   // console.log(TICKRATE)
 }
